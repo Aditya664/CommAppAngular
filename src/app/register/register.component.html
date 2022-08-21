@@ -1,0 +1,49 @@
+<div class="d-flex justify-content-md-center align-items-center vh-100">
+    <div>
+        <form [formGroup]="RegisterForm" (ngSubmit)="addUser()" class="register">
+            <div style="text-align: center;margin-left: 90px;margin-bottom: 50px;">
+                <span class="invalid-feedback" style="display: block;">
+                    <span *ngIf="RegisterForm.get('fullname')?.errors?.['required']">Please enter your full name</span>
+                    <br>
+                    <span *ngIf="RegisterForm.get('email')?.errors?.['required']">Please enter your email</span>
+                    <br>
+                    <span *ngIf="RegisterForm.get('password')?.errors?.['required']">Please enter your password</span>
+                    <br>
+                    <span *ngIf="RegisterForm.get('confirmPassword')?.errors?.['required']">Please enter your
+                        password</span>
+                </span>
+            </div>
+            <h2 class="title">Register</h2>
+            <table>
+                <tr>
+                    <td><label for="fullName">Full Name</label></td>
+                    <td><input formControlName="fullname" placeholder="Enter full name"
+                            [ngClass]="{'is-invalid': RegisterForm.get('fullname')?.touched || RegisterForm.get('fullname')?.dirty && !RegisterForm.get('fullname')?.valid}">
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email</label></td>
+                    <td><input formControlName="email" placeholder="Enter email"
+                            [ngClass]="{'is-invalid': RegisterForm.get('email')?.touched || RegisterForm.get('email')?.dirty && !RegisterForm.get('email')?.valid}">
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="pass">Password</label></td>
+                    <td><input type="password" formControlName="password" placeholder="*****"
+                            [ngClass]="{'is-invalid': RegisterForm.get('password')?.touched || RegisterForm.get('password')?.dirty && !RegisterForm.get('password')?.valid}">
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="confirmPass">Confirm Password</label></td>
+                    <td><input type="password" formControlName="confirmPassword" placeholder="*****"
+                            [ngClass]="{'is-invalid': RegisterForm.get('confirmPassword')?.touched || RegisterForm.get('confirmPassword')?.dirty && !RegisterForm.get('confirmPassword')?.valid}">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input class="submit" type="submit" [disabled]="!RegisterForm.valid"
+                            value="Register"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+.chatScreen {
+    width: 100%;
+}
+
+.chatHeader {
+    max-height: 50px;
+    border: solid black;
+    margin-top: 100px;
+    display: flex;
+    border-radius: 6px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.chatFooter {
+    height: 60px;
+    border: solid black;
+    display: flex;
+    border-radius: 6px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.chatMenu input {
+    width: 400px;
+    border-radius: 7px;
+}
+
+.chatMenu button {
+    width: 100px;
+    background-color: white;
+    border-radius: 7px;
+}
+
+.messages {
+    height: 280px;
+    overflow: scroll;
+}
+
+.chatMenu input,
+button,
+lable {
+    margin-right: 14px;
+    margin-left: 14px;
+}
+
+.chatBody {
+    padding: 15px;
+    height: 300px;
+    border-radius: 6px;
+    border: solid black;
+}
+
+.btnClose {
+    width: 3%;
+    margin-right: 5px;
+    font-weight: bold;
+    font-size: 15px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.title {
+    width: 97%;
+}

@@ -1,0 +1,95 @@
+.Name {
+    width: 40%;
+    border: solid black;
+}
+
+.Email {
+    width: 40%;
+    border: solid black;
+    text-align: center;
+}
+
+.Action {
+    text-align: center;
+    border: solid black;
+}
+
+.userData {
+    margin-top: 30px;
+}
+
+.userData table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table td {
+    border-left: 1px solid #000;
+}
+.table button{
+    border: none;
+    color: #141415;
+}
+table th {
+    background-color: rgb(204, 204, 204);
+    border-left: 1px solid #000;
+}
+
+table td:first-child {
+    border-left: none;
+}
+
+// model css
+.innerModal {
+    border-left: none;
+}
+
+.modalContent {
+    display: inline-block;
+    height: 20%;
+    margin: 20px;
+    padding: 2px;
+}
+
+.modalFooter {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.modalFooter button {
+    width: 100px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.modal-dialog {
+    width: 350px;
+    height: 250px;
+}
+
+.modalBorder {
+    border: 2px solid black;
+}
+
+.modalTitle {
+    text-align: center;
+    width: 100%;
+}
+
+.modalClose {
+    color: black;
+    height: 40px;
+    width: 40px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.modalHeader {
+    border-bottom: 2px solid black;
+    padding: 10px 0 10px 0;
+}
+
+.mdlBtn:hover {
+    border: thick solid #0000ff;
+}

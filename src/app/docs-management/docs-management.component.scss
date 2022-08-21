@@ -1,0 +1,121 @@
+.Lable {
+    width: 40%;
+    border: solid black;
+}
+
+.FileName {
+    width: 40%;
+    text-align: center;
+    border: solid black;
+}
+
+.Action {
+    text-align: center;
+    border: solid black;
+
+}
+
+.userData {
+    margin-top: 30px;
+}
+
+table {
+    border: 1px solid black;
+    border-radius: 5px;
+    overflow: scroll;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table td {
+    border-left: 1px solid #000;
+}
+
+table th {
+    background-color: rgb(204, 204, 204);
+    border-left: 1px solid #000;
+}
+
+table td:first-child {
+    border-left: none;
+}
+
+.AddDoc {
+    background-color: #6DFAFB;
+    color: #000;
+    border-radius: 7px;
+    padding: 6px;
+    width: 150px;
+}
+
+
+// model css
+.innerModal {
+    border-left: none;
+}
+
+.modalContent {
+    display: inline-block;
+    height: 50%;
+    margin: 30px;
+    padding: 2px;
+}
+
+.modalContent img h6 {
+    line-height: 30px;
+}
+
+.modalFooter {
+    text-align: left;
+    padding-bottom: 20px;
+    padding: 10px;
+}
+
+.modalFooter button {
+    width: 100px;
+    background-color: rgb(204, 204, 204);
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.editModal {
+    width: 300px;
+    height: 250px;
+}
+
+.file-upload {
+    width: 450px;
+    height: 250px;
+}
+
+.delete-upload {
+    width: 300px;
+    height: 200px;
+}
+
+.modalBorder {
+    border: 2px solid black;
+}
+
+.modalTitle {
+    text-align: center;
+    width: 100%;
+}
+
+.modalClose {
+    color: black;
+    height: 40px;
+    width: 40px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.modalHeader {
+    border-bottom: 2px solid black;
+    padding: 10px 0 10px 0;
+}
+
+.mdlBtn:hover {
+    border: thick solid #0000ff;
+}

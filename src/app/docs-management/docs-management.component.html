@@ -1,0 +1,119 @@
+<app-navbar></app-navbar>
+<div class="userData">
+    <h2>My Uploads</h2>
+    <table class="table table-striped table-hover table-light">
+        <thead>
+            <tr>
+                <th class="Lable">Lable</th>
+                <th class="FileName">File Name</th>
+                <th class="Action">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let Doc of uploads">
+                <td style="display:none;">{{Doc.id}}</td>
+                <td class="Lable">{{Doc.label}}</td>
+                <td class="FileName">{{Doc.filename}}</td>
+                <td class="Action"><a data-target="#editUploadModal" (click)="editDoc(Doc.id)" data-toggle="modal"
+                        href="#editUploadModal">Edit</a> <span> | </span> <a data-toggle="modal"
+                        data-target="#deleteModal" id={{Doc.id}} (click)="deleteDoc(Doc.id)"
+                        href="#deleteModal">Delete</a></td>
+            </tr>
+        </tbody>
+        <tr>
+            <td colspan="3"><button class="AddDoc" data-toggle="modal" data-target="#addUploadModal">+ Add
+                    Upload</button></td>
+        </tr>
+    </table>
+</div>
+
+<!-- Delete Modal Html -->
+<div class="modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+    <div class="modal-dialog delete-upload modal-dialog-centered">
+        <div class="modal-content modalBorder">
+            <div class="modal-header" style="border-bottom: 2px solid black;padding: 5px 5px 5px 5px;">
+                <h6 class="modalTitle">Confirm user deletion</h6>
+                <button type="button" class="modalClose" data-dismiss="modal" aria-label="close">X</button>
+            </div>
+            <div class="modal-body innerModal">
+                <div class="modalContent">
+                    <img src="data:image/jpeg;base64,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"
+                        style="width: 50px;height:50px;" alt="">
+                    <span>&nbsp;&nbsp;&nbsp; Are you sure ?</span>
+                </div>
+            </div>
+            <div class="modalFooter">
+                <button type="type" (click)="docOkDelete()" class="mdlBtn">Ok</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="button" data-dismiss="modal" class="mdlBtn">Cancle</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Modal Html -->
+<div id="addUploadModal" class="modal fade">
+    <div class="modal-dialog file-upload modal-dialog-centered">
+        <div class="modal-content modalBorder">
+            <div class="modal-header" style="border-bottom: 2px solid black;padding: 5px 5px 5px 5px;">
+                <h6 class="modalTitle">Add Upload</h6>
+                <button type="button" class="modalClose" data-dismiss="modal" aria-label="close">X</button>
+            </div>
+            <div class="modal-body innerModal">
+                <form [formGroup]="documentUploadForm" (ngSubmit)="addDoc()">
+                    <table style="width: 500px;border:none;">
+                        <tr>
+                            <td>
+                                <p>File Description</p>
+                            </td>
+                            <td><input formControlName="label" placeholder="sample file" type="text"
+                                    [ngClass]="{'is-invalid': documentUploadForm.get('label')?.touched || documentUploadForm.get('label')?.dirty && !documentUploadForm.get('label')?.valid}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>File upload</p>
+                            </td>
+                            <td><input formControlName="filename" type="file" name="" id="fileupload"
+                                    [ngClass]="{'is-invalid': documentUploadForm.get('filename')?.touched || documentUploadForm.get('filename')?.dirty && !documentUploadForm.get('filename')?.valid}">
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="modalFooter">
+                        <button type="submit" [disabled]="!documentUploadForm.valid" style="width: 30%;"
+                            class="mdlBtn">Upload Now</button>
+                        <button type="button" style="width: 30%;" class="mdlBtn" data-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Modal Html -->
+<div class="modal fade" id="editUploadModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+    <div class="modal-dialog editModal modal-dialog-centered">
+        <div class="modal-content modalBorder">
+            <div class="modal-header" style="border-bottom: 2px solid black;padding: 5px 5px 5px 5px;">
+                <h6 class="modalTitle">Edit</h6>
+                <button type="button" class="modalClose" data-dismiss="modal" aria-label="close">X</button>
+            </div>
+            <form [formGroup]="documentEditForm" (ngSubmit)="docOkEdit()">
+                <div class="modal-body innerModal">
+                    <div class="modalContent">
+                        <label for="file">file discription</label>
+                        &nbsp;&nbsp;&nbsp;
+                        <input formControlName="editLabel" type="text"
+                            [ngClass]="{'is-invalid': documentEditForm.get('editLabel')?.touched || documentEditForm.get('editLabel')?.dirty && !documentEditForm.get('editLabel')?.valid}">
+                    </div>
+                </div>
+                <div class="modalFooter">
+                    <button type="submit" [disabled]="!documentEditForm.valid" class="mdlBtn">Submit</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="button" data-dismiss="modal" class="mdlBtn">Cancle</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

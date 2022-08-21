@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+<div class="chatScreen">
+    <!-- Chat Header -->
+    <div class="chatHeader">
+        <h3 class="title">Group Chat</h3>
+        <button class="btnClose">X</button>
+    </div>
+    <!-- Chat Body -->
+    <div class="chatBody">
+        <div id="box" class="messages">
+            <tr *ngFor="let msg of Messages">
+                <p>[{{msg.date | date:'yyyy-dd-MM HH:mm:ss'}}] &nbsp; {{msg.fullname}} :&nbsp; {{msg.message}}</p>
+            </tr>
+        </div>
+    </div>
+    <!-- Chat Footer -->
+    <div class="chatFooter">
+        <form class="chatMenu" (ngSubmit)="addChat()" [formGroup]="chatGroup">
+            <label for="name">{{activeUserName}} &nbsp;&nbsp;</label>
+            <input type="text" formControlName="message" class="msgText" placeholder="Enter Message"
+                [ngClass]="{'is-invalid': chatGroup.get('message')?.touched || chatGroup.get('message')?.dirty && !chatGroup.get('message')?.valid}">
+            <button [disabled]="!chatGroup.valid" onclick="window.location.reload();scrollBottom(y.height())"
+                type="submit">Send</button>
+            <button type="reset">Refresh</button>
+        </form>
+    </div>
+</div>

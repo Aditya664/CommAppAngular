@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+<div class="d-flex justify-content-md-center align-items-center vh-100">
+    <div>
+        <form [formGroup]="editUserGroup" (ngSubmit)="editUserSave()" class="edit">
+            <h4 class="title">Edit Users Information</h4>
+            <table>
+                <tr>
+                    <td><label for="fullName">Full Name</label></td>
+                    <td><input type="text" formControlName="fullname" value={{user.fullname}} id="fullName"
+                            placeholder="Enter Full Name"
+                            [ngClass]="{'is-invalid': editUserGroup.get('fullname')?.touched || editUserGroup.get('fullname')?.dirty && !editUserGroup.get('fullname')?.valid}">
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email</label></td>
+                    <td><input type="email" formControlName="email" id="email" placeholder="Enter Email"
+                            [ngClass]="{'is-invalid': editUserGroup.get('email')?.touched || editUserGroup.get('email')?.dirty && !editUserGroup.get('email')?.valid}">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input class="submit" [disabled]="!editUserGroup.valid" type="submit" value="Save">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
