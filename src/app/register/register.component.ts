@@ -22,6 +22,7 @@ export class RegisterComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    //this.util.addDummyUser();
     this.RegisterForm = this.fb.group({
       fullname: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
@@ -44,27 +45,18 @@ export class RegisterComponent implements OnInit {
       'password': this.RegisterForm.value.confirmPassword
     };
 
-    //Check user already exists or not
-    for (let i = 0; i < oldRecord.length; i++) {
-      if (oldRecord[i].email == this.RegisterForm.value.email) {
-        isExist = true;
-      }
-    }
-
-    if (isExist) {
+    if (this.util.userExists(this.RegisterForm.value.email) === 1) {
       alert('user exists !');
+    } else if (!this.util.passwordMatcher(this.RegisterForm.value.password, this.RegisterForm.value.confirmPassword)) {
+      alert('password missmatch !');
     } else {
-      // Check password
-      if (!this.util.passwordMatcher(this.RegisterForm.value.password, this.RegisterForm.value.confirmPassword)) {
-        alert('password missmatch !');
-      } else {
-        let usersList = [];
-        usersList = (oldRecord!);
-        users = usersList ? usersList : []; // ternary operator
-        users.push(this.userObject);
-        this.util.setToLocalStorage('users', users);
-        this.route.navigateByUrl('register-success');
-      }
+      let usersList = [];
+      usersList = (oldRecord!);
+      users = usersList ? usersList : []; // ternary operator
+      users.push(this.userObject);
+      this.util.setToLocalStorage('users', users);
+      this.route.navigateByUrl('register-success');
     }
   }
 }
+

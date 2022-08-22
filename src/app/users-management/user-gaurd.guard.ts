@@ -8,8 +8,7 @@ import { UtilityService } from '../services/utility.service';
 })
 
 export class UserGaurdGuard implements CanActivate {
-  users = this.util.getFromLocalStorage('users');
-  constructor(private router: Router, private util: UtilityService) { }
+  constructor(private router: Router) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,

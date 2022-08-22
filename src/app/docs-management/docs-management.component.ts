@@ -91,14 +91,8 @@ export class DocsManagementComponent implements OnInit {
       'filename': this.documentUploadForm.value.filename.replace('C:\\fakepath\\', ''),
       'uploadedBy': this.activeUser
     };
-    //Check file already exists or not
-    for (let i = 0; i < oldRecord.length; i++) {
-      if (oldRecord[i].filename == this.documentUploadForm.value.filename.replace('C:\\fakepath\\', '')) {
-        isExist = true;
-      }
-    }
-
-    if (isExist) {
+   
+    if (this.util.docExists(this.documentUploadForm.value.filename) === 1) {
       alert('file exists !');
     } else {
       let docList = [];
@@ -111,3 +105,4 @@ export class DocsManagementComponent implements OnInit {
     }
   }
 }
+

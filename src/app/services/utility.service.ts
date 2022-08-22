@@ -10,6 +10,43 @@ export class UtilityService {
   constructor(private route: Router) { }
 
 
+  //check user exists or not
+  userExists(email: string): any {
+    let users: any[] = this.getFromLocalStorage('users');
+    let exists: boolean = false;
+    if ('users' in localStorage) {
+      console.log('exists')
+      exists = true;
+    }
+
+    if (exists) {
+      //Check user already exists or not
+      for (let i = 0; i < users.length ; i++) {
+        if (users[i].email == email) {
+          return 1;
+        }
+      }
+    }
+  }
+   //check docs exists
+   docExists(filename: string): any {
+    let uploads: any[] = this.getFromLocalStorage('upload');
+    let exists: boolean = false;
+    if ('upload' in localStorage) {
+      console.log('exists')
+      exists = true;
+    }
+
+    if (exists) {
+      //Check docs already exists or not
+      for (let i = 0; i < uploads.length ; i++) {
+        if (uploads[i].filename == filename) {
+          return 1;
+        }
+      }
+    }
+  }
+
   //Getting data from localstorage
   getFromLocalStorage(key: string): any {
     let records = localStorage.getItem(key);
