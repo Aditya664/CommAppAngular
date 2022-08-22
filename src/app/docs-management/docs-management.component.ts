@@ -92,7 +92,7 @@ export class DocsManagementComponent implements OnInit {
       'uploadedBy': this.activeUser
     };
    
-    if (this.util.docExists(this.documentUploadForm.value.filename) === 1) {
+    if (this.util.docExists(this.documentUploadForm.value.filename.replace('C:\\fakepath\\', '')) === 1) {
       alert('file exists !');
     } else {
       let docList = [];

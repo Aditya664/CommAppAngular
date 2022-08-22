@@ -21,15 +21,15 @@ export class UtilityService {
 
     if (exists) {
       //Check user already exists or not
-      for (let i = 0; i < users.length ; i++) {
+      for (let i = 0; i < users.length; i++) {
         if (users[i].email == email) {
           return 1;
         }
       }
     }
   }
-   //check docs exists
-   docExists(filename: string): any {
+  //check docs exists
+  docExists(filename: string): any {
     let uploads: any[] = this.getFromLocalStorage('upload');
     let exists: boolean = false;
     if ('upload' in localStorage) {
@@ -39,7 +39,7 @@ export class UtilityService {
 
     if (exists) {
       //Check docs already exists or not
-      for (let i = 0; i < uploads.length ; i++) {
+      for (let i = 0; i < uploads.length; i++) {
         if (uploads[i].filename == filename) {
           return 1;
         }
